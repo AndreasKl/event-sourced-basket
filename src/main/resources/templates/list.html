@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Axon Basket</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <h3>Axon Basket Sample</h3>
+        <p>POST to /baskets to create a basket. POST to /baskets/{id} to add a line item using the following JSON.</p>
+        <p><code>
+        curl -X POST \
+            http://localhost:8080/baskets \
+            -H 'cache-control: no-cache' \
+            -H 'content-type: application/json'
+        </code></p>
+        <p><code>
+        curl -X POST \
+            http://localhost:8080/baskets/{basketId} \
+            -H 'content-type: application/json' \
+            -d '{ 
+            "productId":"test-product-id",
+            "productName":"A Name",
+            "priceInCent": 42,
+            "quantity": 23
+          }'
+        </code></p>
+        <p>GET /baskets to list all available baskets.</p>
+        <p th:each="basket : ${baskets}">
+          <span th:text="${basket}"></span>
+        </p>
+    </body>
+</html>
