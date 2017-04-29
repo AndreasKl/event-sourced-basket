@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/basket-service
+    driverClassName: org.postgresql.Driver
+    username: demo1
+    password: demo1

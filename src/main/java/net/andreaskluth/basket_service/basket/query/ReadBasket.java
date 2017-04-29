@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -18,7 +19,7 @@ public class ReadBasket {
     @Id
     public String id;
 
-    @OneToMany(cascade = { CascadeType.ALL }, orphanRemoval = true)
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, orphanRemoval = true)
     public Set<ReadLineItem> lineItems = new HashSet<>();
 
     ReadBasket() {
